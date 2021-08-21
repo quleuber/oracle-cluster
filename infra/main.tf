@@ -10,8 +10,8 @@ terraform {
   }
 }
 provider "oci" {
-  region = var.region
-  auth   = "SecurityToken"
+  region              = var.region
+  auth                = "SecurityToken"
   config_file_profile = "terraform"
 }
 
@@ -139,18 +139,6 @@ resource "oci_core_default_security_list" "default_security_list" {
     destination = "0.0.0.0/0"
     protocol    = "6" // tcp
   }
-
-  # // allow outbound udp traffic on a port range
-  # egress_security_rules {
-  #   destination = "0.0.0.0/0"
-  #   protocol    = "17" // udp
-  #   stateless   = true
-
-  #   udp_options {
-  #     min = 319
-  #     max = 320
-  #   }
-  # }
 
   // allow inbound ssh traffic
   ingress_security_rules {

@@ -1,0 +1,19 @@
+all:
+  vars:
+    ansible_user: opc
+
+  children:
+
+    mysql:
+      hosts:
+        oracle-cluster-mysql-k3s:
+
+    master:
+      hosts:
+        oracle-cluster-master-node-01:
+        oracle-cluster-master-node-02:
+
+    worker:
+      hosts:
+        oracle-cluster-worker-node-01:
+        oracle-cluster-worker-node-02:
