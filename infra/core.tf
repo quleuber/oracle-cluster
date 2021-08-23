@@ -1,6 +1,9 @@
-variable "compartment_ocid" {}
 variable "region" {}
-variable "net_id" {}
+variable "compartment_ocid" {}
+
+variable "net_id" {
+  default = 10
+}
 
 terraform {
   required_providers {

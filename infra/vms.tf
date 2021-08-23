@@ -1,3 +1,11 @@
+variable "availability_domain" {
+  # default = "AD-1"
+}
+
+variable "ssh_authorized_keys" {
+  type = string
+}
+
 variable "num_master_nodes" {
   type    = number
   default = 1
@@ -7,9 +15,6 @@ variable "num_worker_nodes" {
   default = 1
 }
 
-variable "ssh_authorized_keys" {
-  type = string
-}
 variable "images" {
   type = map(map(map(string)))
   default = {
@@ -22,9 +27,6 @@ variable "images" {
       }
     }
   }
-}
-variable "availability_domain" {
-  # default = "AD-1"
 }
 
 resource "oci_core_instance" "cluster_master_node" {
@@ -174,3 +176,7 @@ output "instances_ip_addr" {
     },
   }
 }
+
+# output "inventory" {
+#   value = templatefile("${path.module}/hosts.tpl.ini", output.instances_ip_addr)
+# }

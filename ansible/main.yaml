@@ -1,0 +1,8 @@
+---
+- name: deploy clusters
+  tasks:
+    - name: get outputs
+      community.general.terraform:
+        path: "infra/"
+        state: present
+        output: result
