@@ -1,0 +1,1 @@
+- [ ] generating ansible inventory from terraform output
